@@ -1,0 +1,37 @@
+#τp(1H)
+set logscale y
+set terminal postscript eps enhanced color
+unset grid
+set grid 
+set xrange [0:30]
+set yrange [1e+8:1e+20]
+set output 'pp_lifetime.eps'
+set format y "10^{%L}"
+set ytics 1e+8,100,1e+20
+unset key
+unset title
+set title 'The lifetime of p against p: {/Symbol t}_p(^1H)'
+set xlabel 'T_{6}'
+set ylabel '{/Symbol t}_p(^1H)  years' 1.7
+set size 0.5,0.5
+plot 'pp_lifetime.dat'with line
+set term X11
+
+#τp(2H)
+set terminal postscript eps enhanced color
+set yrange [1:1e+12]
+set output 'pd_lifetime.eps'
+set format y "10^{%L}"
+unset key
+unset title
+set title 'The lifetime of  ^2H against p: {/Symbol t}_p(^2H)'
+set xlabel 'T_{6}'
+set ylabel '{/Symbol t}_p(^2H)  years' 1.7
+unset ytics
+set ytics ("10^{-10}"1,""10,""100,""1000,""1e+4,"10^{-5}"1e+5,""1e+6,\
+           ""1e+7,""1e+8,""1e+9,"1.0"1e+10,""1e+11,""1e+12,\
+           "1sec"3.1746*100)
+set size 0.5,0.5
+plot 'pd_lifetime.dat' with line
+set term X11
+#load 'pp_pd_lifetime.txt'

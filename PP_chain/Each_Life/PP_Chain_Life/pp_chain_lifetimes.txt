@@ -1,0 +1,193 @@
+#τp(1H)
+set logscale y
+set terminal postscript eps enhanced color
+unset grid
+set grid 
+set xrange [0:30]
+set yrange [1e+8:1e+20]
+set output 'pp_lifetime.eps'
+set format y "10^{%L}"
+set ytics 1e+8,100,1e+20
+unset key
+unset title
+set title 'The lifetime of p against p: {/Symbol t}_p(^1H)'
+unset label
+set xlabel 'T_{6}'
+set ylabel '{/Symbol t}_p(^1H)  years' 1.7
+set size 0.5,0.5
+plot 'pp_lifetime.dat'with line
+set term X11
+
+#τd(3H)
+set terminal postscript eps enhanced color
+unset grid
+set grid 
+set xrange [0:30]
+set yrange [1e+6:1e+25]
+set output 'dt_lifetime.eps'
+set format y "10^{%L}"
+set ytics 1e+6,100,1e+25
+unset key
+unset title
+set title 'The lifetime of ^3He against d: {/Symbol t}_d(^3He)'
+unset label
+set xlabel 'T_{6}'
+set ylabel '{/Symbol t}_d(^3He)  years' 1.7
+set size 0.5,0.5
+plot 'dt_lifetime.dat'with line
+set term X11
+
+#ττ(3H)
+set terminal postscript eps enhanced color
+unset grid
+set grid 
+set xrange [0:30]
+set yrange [100:1e+22]
+set output 'tt_lifetime.eps'
+set format y "10^{%L}"
+set ytics 100,1e+4,1e+22
+unset key
+unset title
+set title 'The lifetime of ^3He against ^3He: {/Symbol t}_{/Symbol t}(^3He)'
+unset label
+set xlabel 'T_{6}'
+set ylabel '{/Symbol t}_{/Symbol t}(^3He)  years' 1.7
+set size 0.5,0.5
+plot 'tt_lifetime.dat'with line
+set term X11
+
+#ττ(3H) (3He)eとして(5-38)を用いて計算したもの。こっちの方がもっともらしい結果。
+set terminal postscript eps enhanced color
+unset grid
+set grid 
+set xrange [0:30]
+set yrange [100:1e+22]
+set output 'tt_lifetime2.eps'
+set format y "10^{%L}"
+set ytics 100,1e+4,1e+22
+unset key
+unset title
+set title 'The lifetime of ^3He against ^3He: {/Symbol t}_{/Symbol t}(^3He)'
+unset label
+set xlabel 'T_{6}'
+set ylabel '{/Symbol t}_{/Symbol t}(^3He)  years' 1.7
+set size 0.5,0.5
+plot 'tt_lifetime2.dat'with line
+set term X11
+
+#τα(3H)
+set terminal postscript eps enhanced color
+unset grid
+set grid 
+set xrange [0:30]
+set yrange [1:1e+18]
+set output 'at_lifetime.eps'
+set format y "10^{%L}"
+set ytics 1,1e+2,1e+18
+unset key
+unset title
+set title 'The lifetime of ^3He against ^4He: {/Symbol t}_{/Symbol a}(^3He)'
+unset label
+set xlabel 'T_{6}'
+set ylabel '{/Symbol t}_{/Symbol a}(^3He)  years' 1.7
+set size 0.5,0.5
+plot 'at_lifetime.dat'with line
+set term X11
+
+
+#τp(7Be)
+set terminal postscript eps enhanced color
+unset grid
+set grid 
+set xrange [0:30]
+set yrange [0.01:1e+8]
+set output 'p7Be_lifetime.eps'
+set format y "10^{%L}"
+set ytics 0.01,1e+2,1e+8
+unset key
+unset title
+set title 'The lifetime of ^7Be against p: {/Symbol t}_p(^7Be)'
+unset label
+set xlabel 'T_{6}'
+set ylabel '{/Symbol t}_p(^7Be)  years' 1.7
+set size 0.5,0.5
+plot 'p7Be_lifetime.dat'with line
+set term X11
+
+#τp(7Li)
+set terminal postscript eps enhanced color
+unset grid
+set grid
+set xrange [0:30]
+set yrange [1e-8:1e+2]
+set output 'p7Li_lifetime.eps'
+set format y "10^{%L}"
+set ytics 1e-8,1e+2,1e+2
+unset key
+unset title
+set title 'The lifetime of ^7Li against p: {/Symbol t}_p(^7Li)'
+unset label
+set xlabel 'T_{6}'
+set ylabel '{/Symbol t}_p(^7Li)  years' 1.7
+set size 0.5,0.5
+plot 'p7Li_lifetime.dat'with line
+set term X11
+
+#τe(7Be)
+set terminal postscript eps enhanced color
+unset grid
+set grid 
+set xrange [0:30]
+set yrange [0.01:100]
+set output 'e7Be_lifetime.eps'
+set format y "10^{%L}"
+set ytics 0.01,10,100
+unset key
+unset title
+set title 'The lifetime of ^7Be against e-capture: {/Symbol t}_e(^7Be)'
+unset label
+set xlabel 'T_{6}'
+set ylabel '{/Symbol t}_e(^7Be)  years' 1.7
+set size 0.5,0.5
+plot 'e7Be_lifetime.dat'with line
+set term X11
+
+#まとめてプロット Fig.5-5
+set terminal postscript eps enhanced color
+unset grid
+set grid 
+set xrange [0:30]
+set yrange [1e-10:1e+26]
+set output 'pp_chain_lifetimes.eps'
+set format y "10^{%L}"
+set ytics 1e-10,1e+4,1e+26
+unset key
+unset title
+set title 'The lifetimes '
+set xlabel 'T_{6}'
+set ylabel '{/Symbol t} , years' 1.7
+set size 0.6,1.0
+set samples  2000
+unset label
+set label '{/Symbol t}_p(^1H)'  at first 24,first 1e+11
+set label '{/Symbol t}_d(^3He)' at first 24,first 1.3e+8
+set label '{/Symbol t}_{/Symbol t}(^3He)'at first 24,first 2e+5
+set label '{/Symbol t}_{/Symbol a}(^3He)'at first 24 ,first 1.5e+1
+set label '{/Symbol t}_p(^7Be)' at first 16,first 1e+3
+set label '{/Symbol t}_p(^7Li)' at first 24,first 2.5e-6
+set label '{/Symbol t}_e(^7Be)' at first 10.5,first 5e+0
+unset arrow
+set arrow from 23.5,5e+1 to 23,5e+2
+set arrow from 19,1e+2 to 19.5,1e+1
+plot 'pp_lifetime.dat'   with line  ,\
+     'dt_lifetime.dat'   with line  ,\
+     'tt_lifetime2.dat'  with line  ,\
+     'at_lifetime.dat'   with line  ,\
+     'p7Be_lifetime.dat' with line  ,\
+     'p7Li_lifetime.dat' with line 8,\
+     'e7Be_lifetime.dat' with line
+set term X11
+unset arrow
+
+#load 'pp_chain_lifetimes.txt'
+

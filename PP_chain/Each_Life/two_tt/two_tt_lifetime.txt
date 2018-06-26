@@ -1,0 +1,24 @@
+#ττ(3H) (3He)eとして(5-38)を用いて計算したもの。
+#こっちの方がもっともらしい結果。
+set terminal postscript eps enhanced color
+unset grid
+set grid 
+set xrange [0:30]
+set yrange [100:1e+22]
+set output 'tt_lifetime12.eps'
+set format y "10^{%L}"
+set ytics 100,1e+4,1e+22
+set key
+unset title
+set title 'The lifetime of ^3He against ^3He: {/Symbol t}_{/Symbol t}(^3He)'
+unset label
+set xlabel 'T_{6}'
+set ylabel '{/Symbol t}_{/Symbol t}(^3He)  years' 1.7
+set size 0.5,0.5
+plot 'tt_lifetime2.dat'with line \
+     title 'including ^3He({/Symbol a},{/Symbol g})^7Be',\
+     'tt_lifetime.dat'with line \
+     title'without ^3He({/Symbol a},{/Symbol g})^7Be'
+set term X11
+
+#load 'two_tt_lifetime.txt'

@@ -1,0 +1,57 @@
+# Fig.5-6用 (5-25)から
+set grid
+unset label 
+#(5-25) Fig.5-6
+set logscale y
+set xrange [0:30]
+set yrange [1e+4:1e+11]
+set term postscript eps enhanced color
+set output 'He_time_to_99.eps'
+set title '{/Symbol r}*X_H/50 t(^3He/(^3He)_e=0.99),years'
+set xlabel 'T_6'
+set ylabel '{/Symbol r}*X_H/50 t,years' 2,0
+set format y "10^{%L}"
+set xtics 0,5,30
+set ytics 1e+4,10,1e+11
+set size 0.5,0.5
+plot 'He_time_to_99.gnuplot'with line
+set term win
+
+# Fig.5-6用 4Heの合成も考慮に入れたもの
+set grid
+unset label 
+set logscale y
+set xrange [0:30]
+set yrange [1e+4:1e+11]
+set term postscript eps enhanced color
+set output 'He_time_to_99_2.eps'
+set title '{/Symbol r}*X_H/50 t(^3He/(^3He)_e=0.99),years'
+set xlabel 'T_6'
+set ylabel '{/Symbol r}*X_H/50 t,years' 2,0
+set format y "10^{%L}"
+set xtics 0,5,30
+set ytics 1e+4,10,1e+11
+set size 0.5,0.5
+plot 'He_time_to_99_2.gnuplot'with line
+set term win
+
+# 上の二つを同時にプロット
+set grid
+#unset label 
+set logscale y
+set xrange [0:30]
+set yrange [1e+4:1e+11]
+set term postscript eps enhanced color
+set output 'He_time_to_99_12.eps'
+set title '{/Symbol r}*X_H/50 t(^3He/(^3He)_e=0.99),years'
+set xlabel 'T_6'
+set ylabel '{/Symbol r}*X_H/50 t,years' 2,0
+set format y "10^{%L}"
+set xtics 0,5,30
+set ytics 1e+4,10,1e+11
+set size 0.6,0.6
+plot 'He_time_to_99_2.gnuplot'with line title 'with ^4He synthesis',\
+     'He_time_to_99.gnuplot'with line title 'without ^4He synthesis'
+set term win
+
+#load 'He_time_to_99.txt'

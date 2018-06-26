@@ -1,0 +1,83 @@
+#The equilibrium ratio (D/H)e Fig.5-4óp
+set logscale y
+unset grid
+set grid 
+set xrange [0:40]
+set yrange [10:1000]
+set terminal postscript eps enhanced color
+set output 'deuterium_concentraion.eps'
+set xtics 0,10,40
+set format y ""
+unset label
+unset ytics
+set ytics ("10^{-18}"10,""20,""30,""40,""50,""60,""70,\
+           ""80,""90,"10^{-17}"100,""200,""300,""400,""500,\
+           ""600,""700,""800,""900,"10^{-16}"1000)
+#set ytics 10,1,1000
+unset key
+unset title
+set title 'The equilibrium ratio (D/H)_e'
+set xlabel 'T_{6}'
+set ylabel '(D/H)_{e}' 2.8,0.0
+set size 0.5,0.5
+load'deuterium_concentraion.gnuplot'
+set term win
+
+
+#The equilibrium ratio (3He/H)e (5-18)ÇÊÇË
+set grid
+set key
+unset label 
+set xrange [0:40]
+set yrange [1e-8:1e+6]
+set term postscript eps enhanced color
+set output 'He_three_concentraion.eps'
+set title 'The equilibrium ratio (^3He/H)_e'
+set ylabel '( ^3He/H)_{e}' 2,0
+set format y "10^{%L}"
+set xtics 0,5,40
+set ytics 10**-8,10**2,10**6
+set size 0.5,0.5
+plot 'He_three_concentraion.gnuplot' with line title'without ^3He({/Symbol a},{/Symbol g})^7Be'
+set term win
+
+
+#The equilibrium ratio (3He/H)e (5-38)ÇÊÇË
+set grid
+set key 
+unset label 
+set xrange [0:40]
+set yrange [1e-8:1e+6]
+set term postscript eps enhanced color
+set output 'He_three_concentraion_2.eps'
+set title 'The equilibrium ratio (^3He/H)_e'
+set ylabel '( ^3He/H)_{e}' 2,0
+set format y "10^{%L}"
+set xtics 0,5,40
+set ytics 10**-8,10**2,10**6
+set size 0.5,0.5
+plot 'He_three_concentraion2.gnuplot' with line title \
+     'including ^3He({/Symbol a},{/Symbol g})^7Be'
+set term win
+
+#è„ÇÃìÒÇ¬ÇÇ†ÇÌÇπÇΩÇ‡ÇÃ
+set grid
+unset label 
+set xrange [0:40]
+set yrange [1e-8:1e+6]
+set term postscript eps enhanced color
+set output 'He_three_concentraion_12.eps'
+set title 'The equilibrium ratio (^3He/H)_e'
+set ylabel '( ^3He/H)_{e}' 2,0
+set format y "10^{%L}"
+set xtics 0,5,40
+set ytics 10**-8,10**2,10**6
+set size 0.5,0.5
+plot 'He_three_concentraion2.gnuplot' with line title 'including ^3He({/Symbol a},{/Symbol g})^7Be',\
+     'He_three_concentraion.gnuplot' with line title'without ^3He({/Symbol a},{/Symbol g})^7Be'
+set term win
+
+
+
+#load 'D_He_concentraion.txt'
+
